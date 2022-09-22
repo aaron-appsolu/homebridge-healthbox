@@ -26,15 +26,15 @@ export class PiHoleAccessory {
 
 
     this.service.getCharacteristic(this.platform.Characteristic.On)
-      .onGet(this.status.bind(this))
-      .onSet(this.disable.bind(this));
+      .onGet(this.statusPiHole.bind(this))
+      .onSet(this.setPiHole.bind(this));
   }
 
-  async disable() {
-    await this.piHoleApiService.disableAdbBlocking(20);
+  async setPiHole(value: CharacteristicValue) {
+    await this.piHoleApiService.setAdbBlocking(value as boolean, 20);
   }
 
-  async status(): Promise<CharacteristicValue> {
+  async statusPiHole(): Promise<CharacteristicValue> {
     return await this.piHoleApiService.status();
   }
 }

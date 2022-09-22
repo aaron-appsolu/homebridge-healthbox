@@ -71,7 +71,7 @@ export class HealthBoxHomebridgePlatform implements DynamicPlatformPlugin {
 
 
   private addPiHole() {
-    const uuid = this.api.hap.uuid.generate(this.config.piHoleIp);
+    const uuid = this.api.hap.uuid.generate(this.config.piHoleUri);
     let existingAccessory = this.accessories.find(accessory => accessory.UUID === uuid);
 
     if (existingAccessory && (!existingAccessory.context.version || existingAccessory.context.version < VENTILATION_VERSION)) {
@@ -84,11 +84,11 @@ export class HealthBoxHomebridgePlatform implements DynamicPlatformPlugin {
 
       new PiHoleAccessory(this, existingAccessory);
     } else {
-      this.log.info('Adding new PiHole:', this.config.piHoleIp);
+      this.log.info('Adding new PiHole:', this.config.piHoleUri);
 
-      const accessory = new this.api.platformAccessory(this.config.piHoleIp, uuid);
+      const accessory = new this.api.platformAccessory('Pi-Hole', uuid);
 
-      accessory.context.piHoleIp = this.config.piHoleIp;
+      accessory.context.piHoleIp = this.config.piHoleUri;
       accessory.context.webPassword = this.config.webPassword;
       accessory.context.version = PIHOLE_VERSION; //Version added so we can introduce breaking changes
 
