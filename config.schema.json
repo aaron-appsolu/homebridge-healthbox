@@ -33,6 +33,19 @@
         "type": "string",
         "required": false,
         "placeholder": "xxxx-xxxx-xxxx-xxxx-xxxx"
+      },
+      "piHoleUri": {
+        "title": "The IP-address of your Pi-Hole",
+        "type": "string",
+        "required": true,
+        "format": "uri",
+        "placeholder": "http://192.168.1.4"
+      },
+      "webPassword": {
+        "title": "WEBPASSWORD is in /etc/pihole/setupVars.conf on your local machine running Pi-Hole",
+        "type": "string",
+        "required": true,
+        "placeholder": "************************"
       }
     }
   }

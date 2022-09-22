@@ -27,7 +27,9 @@ Example config.json:
             "boostFanSpeed": 200,
             "boostDuration": 3600,
             "platform": "HealthBoxHomebridgePlugin",
-            "apiKey": "xxxx-xxxx-xxxx-xxxx-xxxx"
+            "apiKey": "xxxx-xxxx-xxxx-xxxx-xxxx",
+            "piHoleUri": "http://192.168.1.4",
+            "webPassword": "************************"
         }
     ]
 

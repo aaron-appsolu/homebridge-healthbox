@@ -11,3 +11,4 @@ export const PLUGIN_NAME = 'homebridge-healthbox-plugin-v2';
 
 export const HEALTH_VERSION = 2;
 export const VENTILATION_VERSION = 1;
+export const PIHOLE_VERSION = 1;
